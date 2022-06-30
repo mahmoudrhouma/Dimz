@@ -3,7 +3,19 @@
 {% block title %} BackOffice{% endblock %}
 
 
+
 {% block body %}
+
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">
+{{ message }}   
+</div>
+
+{% endfor %}
+
 <a href = "{{ path("app_adm_categorie")}}" > Catégorie </a>
+</br>
+<a href = "{{ path("app_adm_carroussel")}}" > Carroussel </a>
+
 
 {% endblock %}
