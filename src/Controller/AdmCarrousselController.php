@@ -38,7 +38,7 @@ class AdmCarrousselController extends AbstractController
         $em->persist($carroussel);  // commit la data     
         $em->flush();               // push ds la BD
          
-        $this->addFlash('success','Akahaw nayek'); // afficher le msg OK après avoir telecharger l'image
+        $this->addFlash('success','Carroussel ajoutée'); // afficher le msg OK après avoir telecharger l'image
         return $this->redirectToRoute('app_back_office'); // afficher le bachoffice après avoir envoyer le formulaire
 
 

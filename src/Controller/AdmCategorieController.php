@@ -33,7 +33,7 @@ class AdmCategorieController extends AbstractController
         $em->persist($Categorie);  // commit la data     
         $em->flush();               // push ds la BD
         
-        $this->addFlash('success','sayabni'); // afficher le msg OK après avoir telecharger l'image
+        $this->addFlash('success','Categorie ajoutée'); // afficher le msg OK après avoir telecharger l'image
         return $this->redirectToRoute('app_back_office'); // afficher le bachoffice après avoir envoyer le formulaire
 
         }
