@@ -12,29 +12,24 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 class AdmCategorieController extends AbstractController
-
 {
 
     #[Route('/adm/categorie', name: 'app_adm_categorie')]
-
     public function index(Request $request, EntityManagerInterface $em): Response
     {
-        $Categorie = new Categorie();
-
-        $form = $this->createForm(CategorieType::class,$Categorie);
-
+        $categorie = new Categorie();
+        $form = $this->createForm(CategorieType::class,$categorie);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
             
-         $categorie = $form->getData();
-        // dd($categorie->getLibelle());
-        $em->persist($Categorie);  // commit la data     
-        $em->flush();               // push ds la BD
-        
-        $this->addFlash('success','Categorie ajoutée'); // afficher le msg OK après avoir telecharger l'image
-        return $this->redirectToRoute('app_back_office'); // afficher le bachoffice après avoir envoyer le formulaire
+            $categorie = $form->getData();
+            $em->persist($categorie);  // commit la data     
+            $em->flush();               // push ds la BD
+            
+            $this->addFlash('success','Categorie ajoutée'); // afficher le msg OK après avoir telecharger l'image
+            return $this->redirectToRoute('app_back_office'); // afficher le bachoffice après avoir envoyer le formulaire
 
         }
 
